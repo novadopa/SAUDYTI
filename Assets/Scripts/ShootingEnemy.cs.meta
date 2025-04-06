@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 9e0394e8780f52e4793f85d4b66fd5e2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fireP: {instanceID: 0}
+  - bullt: {fileID: 5464047744359864496, guid: ca595aa0c2679f541aa09af639481bd2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
