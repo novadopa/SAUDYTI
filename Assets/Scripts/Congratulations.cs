@@ -1,41 +1,54 @@
-using UnityEngine;
-using UnityEngine.UI; // For UI Text (or use TMPro)
+﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
-
 
 public class Congratulations : MonoBehaviour
 {
     [Header("UI Settings")]
-    public Text victoryText; // Use 'TMP_Text' for TextMeshPro
-    public float messageDelay = 1f; // Optional delay
+    public Text victoryText; // Jei naudojate TextMeshPro, pakeiskite į TMP_Text
+    public float messageDelay = 1f;
 
-    public int totalEnemies;
+    [Header("Game Settings")]
+    public GameOvER Manager; // Įsitikinkite, kad šis objektas yra priskirtas Unity Editor
+
     private int enemiesRemaining;
-    public GameOvER Manager;
 
     void Start()
     {
-        // Find all enemies with the "Enemy" tag (adjust if needed)
-        enemiesRemaining = totalEnemies;
-
+        UpdateEnemyCount(); // Atnaujinti priešų skaičių starte
     }
 
-    // Call this when an enemy dies
+    // Šis metodas turi būti iškviestas kiekvieną kartą, kai priešas žūva
     public void OnEnemyDestroyed()
     {
-        enemiesRemaining--;
+        enemiesRemaining--; // Sumažinti likusių priešų skaičių
+        Debug.Log($"Priešas sunaikintas! Liko: {enemiesRemaining}");
+
 
         if (enemiesRemaining <= 0)
+        {
             ShowVictoryMessage();
+        }
+    }
+
+    // Galima naudoti, jei priešai dinamiškai atsiranda/dingsta
+    public void UpdateEnemyCount()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemiesRemaining = enemies.Length;
+        Debug.Log($"Viso priešų: {enemiesRemaining}");
     }
 
     private void ShowVictoryMessage()
     {
-        if (Manager != null)
+        // Dar kartą patikriname, ar tikrai nebėra priešų
+        UpdateEnemyCount();
+
+        if (enemiesRemaining <= 1)
         {
-            Debug.Log("Calling gameOver()...");
-            Manager.gameOver();  // Ensure this is called
+            Debug.Log("Lygis įveiktas! Iškviečiamas gameOver()...");
+            Manager.gameOver(); // Perjungti į pergalės ekraną
+
         }
     }
 }
