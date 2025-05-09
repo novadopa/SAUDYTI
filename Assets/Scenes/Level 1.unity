@@ -777,7 +777,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryText: {fileID: 0}
   messageDelay: 1
-  totalEnemies: 1
   Manager: {fileID: 0}
 --- !u!1 &155051782
 GameObject:
@@ -2291,7 +2290,7 @@ GameObject:
   - component: {fileID: 676077453}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2581,7 +2580,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryText: {fileID: 0}
   messageDelay: 1
-  totalEnemies: 0
   Manager: {fileID: 772601998}
 --- !u!1 &679018008
 GameObject:
@@ -2906,6 +2904,7 @@ GameObject:
   - component: {fileID: 949779984}
   - component: {fileID: 949779983}
   - component: {fileID: 949779987}
+  - component: {fileID: 949779988}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3012,6 +3011,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 793713616}
+--- !u!114 &949779988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949779982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f680b22b64122e246b39eba5ff6ba198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1014887473
 GameObject:
   m_ObjectHideFlags: 0
@@ -3615,9 +3626,9 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154255891}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a317acc3158825d4d8122502eb014f86, type: 2}
   m_audioClip: {fileID: 8300000, guid: cd025b26d61440d48bd93e0a2f22a712, type: 3}
   m_Resource: {fileID: 8300000, guid: cd025b26d61440d48bd93e0a2f22a712, type: 3}
   m_PlayOnAwake: 1
@@ -4485,7 +4496,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -4564,7 +4575,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: -5392625257635239999, guid: c97ad45f4da1647429d22c4c8e787343, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.8, y: 1.08}

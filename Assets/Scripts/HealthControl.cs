@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class Healthcontrol : MonoBehaviour
@@ -91,6 +91,7 @@ public class Healthcontrol : MonoBehaviour
         for (int i = 0; i < coinsToDrop; i++)
         {
             Instantiate(coinPrefab, spawnPos, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 

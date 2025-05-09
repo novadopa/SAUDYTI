@@ -872,7 +872,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryText: {fileID: 0}
   messageDelay: 1
-  totalEnemies: 4
   Manager: {fileID: 1082811604}
 --- !u!1 &184376481
 GameObject:
@@ -1451,7 +1450,7 @@ GameObject:
   - component: {fileID: 263121126}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1705,7 +1704,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryText: {fileID: 0}
   messageDelay: 1
-  totalEnemies: 0
   Manager: {fileID: 1082811604}
 --- !u!1 &297687215
 GameObject:
@@ -2395,7 +2393,7 @@ GameObject:
   - component: {fileID: 407404694}
   m_Layer: 0
   m_Name: Enemy (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2649,7 +2647,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryText: {fileID: 0}
   messageDelay: 1
-  totalEnemies: 0
   Manager: {fileID: 1082811604}
 --- !u!1 &460028727
 GameObject:
@@ -2669,7 +2666,7 @@ GameObject:
   - component: {fileID: 460028735}
   m_Layer: 0
   m_Name: Enemy (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2923,7 +2920,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryText: {fileID: 0}
   messageDelay: 1
-  totalEnemies: 0
   Manager: {fileID: 1082811604}
 --- !u!1 &486703035
 GameObject:
@@ -4196,7 +4192,7 @@ GameObject:
   - component: {fileID: 676077452}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4450,7 +4446,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryText: {fileID: 0}
   messageDelay: 1
-  totalEnemies: 0
   Manager: {fileID: 1082811604}
 --- !u!1 &689445934
 GameObject:
@@ -7193,7 +7188,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -7272,7 +7267,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -5392625257635239999, guid: c97ad45f4da1647429d22c4c8e787343, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.8, y: 1.08}
