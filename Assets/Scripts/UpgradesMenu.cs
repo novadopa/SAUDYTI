@@ -1,46 +1,45 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UpgradesMenu : MonoBehaviour
 {
-    //public PlayerStats playerStats;
+    [Header("UI References")]
+    public Image hpIndicator;
+    public Image armorIndicator;
+    public Sprite[] upgradeLevels;
 
-    public Image hpIndicator; 
-    public Image armorIndicator; 
-
-    public Sprite[] upgradeLevels; 
-
-    private int hpUpgradeLevel = 0;   
-    private int armorUpgradeLevel = 0; 
-
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("Main Menu");
-        }
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        hpIndicator.sprite = upgradeLevels[UpgradesManager.Instance.HPLevel];
+        armorIndicator.sprite = upgradeLevels[UpgradesManager.Instance.ArmorLevel];
     }
 
     public void UpgradeHP()
     {
-        if (hpUpgradeLevel < 3)
+        if (UpgradesManager.Instance.TryUpgradeHP(100))
         {
-            //playerStats.UpgradeHP();
-            hpUpgradeLevel++;
-            hpIndicator.sprite = upgradeLevels[hpUpgradeLevel];
-            //PlayerPrefs.SetInt("HPLevel", hpUpgradeLevel); 
+            UpdateUI();
+            // Можно добавить звук или эффекты
         }
     }
 
     public void UpgradeArmor()
     {
-        if (armorUpgradeLevel < 3)
+        if (UpgradesManager.Instance.TryUpgradeArmor())
         {
-            //playerStats.UpgradeArmor();
-            armorUpgradeLevel++;
-            armorIndicator.sprite = upgradeLevels[armorUpgradeLevel];
-            //PlayerPrefs.SetInt("ArmorLevel", armorUpgradeLevel);
+            UpdateUI();
         }
+    }
+
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

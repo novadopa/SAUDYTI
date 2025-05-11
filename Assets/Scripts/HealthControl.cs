@@ -19,6 +19,7 @@ public class Healthcontrol : MonoBehaviour
     }
     public UnityEvent OnDied;
     public UnityEvent OnHealthChanged;
+    public UnityEvent OnHealed;
     public GameOvER Manager;
     public void TakeDamega(float damega)
     {
@@ -47,7 +48,17 @@ public class Healthcontrol : MonoBehaviour
             }
         }
     }
+    public void Heal(float amount)
+    {
+        if (_currentHealth >= _maxHealth) return;
 
+        _currentHealth = Mathf.Min(_currentHealth + amount, _maxHealth);
+
+        // Визуальные эффекты
+
+        OnHealthChanged.Invoke();
+        OnHealed.Invoke();
+    }
 
     public void AddHealth(float amountToAdD)
     {
@@ -61,7 +72,9 @@ public class Healthcontrol : MonoBehaviour
         {
             _currentHealth = _maxHealth;
         }
+
     }
+
     public void TakeDamaga(float damega)
     {
         if (_currentHealth == 0) return; // Don't apply damage if already dead
@@ -77,27 +90,58 @@ public class Healthcontrol : MonoBehaviour
         }
     }
 
-    [SerializeField] private GameObject coinPrefab; // Assign in Inspector
+
+    [SerializeField] private GameObject coinPrefab;
     [SerializeField] private int minCoins = 1;
     [SerializeField] private int maxCoins = 3;
+    [SerializeField] private float spawnRadius = 0.5f; // Радиус разброса
 
     private void DropCoins()
     {
         if (coinPrefab == null) return;
 
-        Vector3 spawnPos = transform.position; // Store position before death
+        Vector3 spawnPos = transform.position;
         int coinsToDrop = Random.Range(minCoins, maxCoins + 1);
 
         for (int i = 0; i < coinsToDrop; i++)
         {
-            Instantiate(coinPrefab, spawnPos, Quaternion.identity);
-            Destroy(gameObject);
+            Vector3 randomOffset = Random.insideUnitCircle * spawnRadius;
+            Instantiate(coinPrefab, spawnPos + randomOffset, Quaternion.identity);
         }
     }
+    [SerializeField] private GameObject healthPotionPrefab;
+    [SerializeField][Range(0, 100)] private int dropChancePercent = 30; // 30% по умолчанию
 
-    // Call this in existing death logic (add to both death conditions)
+    private void TryDropHealthPotion()
+    {
+        if (healthPotionPrefab == null) return;
+
+        // Более предсказуемый вариант
+        int randomRoll = Random.Range(0, 101); // 0-100
+        if (randomRoll <= dropChancePercent)
+        {
+            Vector3 spawnPos = transform.position + Random.insideUnitSphere * spawnRadius;
+            Instantiate(healthPotionPrefab, spawnPos, Quaternion.identity);
+        }
+    }
+    [SerializeField] private GameObject expPrefab;
+    private void DropEXP()
+    {
+        if (expPrefab == null) return;
+
+        Vector3 spawnPos = transform.position;
+
+        Vector3 randomOffset = Random.insideUnitCircle * spawnRadius;
+        Instantiate(expPrefab, spawnPos + randomOffset, Quaternion.identity);
+    }
+
     public void HandleDeath()
     {
         DropCoins();
+        TryDropHealthPotion();
+        DropEXP();
     }
+
+
+
 }
