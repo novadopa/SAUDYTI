@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
-    public static bool isPaused = false; // Глобальная переменная для проверки паузы
+    public static bool isPaused = false;
 
     void Update()
     {

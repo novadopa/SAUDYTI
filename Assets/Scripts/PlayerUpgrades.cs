@@ -18,7 +18,6 @@
             MaxArmorLevel++;
     }
 
-    // Сброс при выходе в главное меню / перезапуске игры
     public static void Reset()
     {
         MaxHPLevel = 0;

@@ -6,18 +6,17 @@ public class Coin : MonoBehaviour
     public int value = 1;
 
     [SerializeField] private AudioClip pickupSound;
-    [SerializeField] private AudioMixer masterMixer; // Главный микшер
+    [SerializeField] private AudioMixer masterMixer; 
 
     private AudioSource audioSource;
 
     private void Awake()
     {
-        // Создаем временный AudioSource
+        
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
-        audioSource.spatialBlend = 0; // 2D звук
+        audioSource.spatialBlend = 0; 
 
-        // Назначаем выход на мастер-микшер
         if (masterMixer != null)
         {
             audioSource.outputAudioMixerGroup = masterMixer.FindMatchingGroups("Master")[0];
@@ -31,7 +30,7 @@ public class Coin : MonoBehaviour
         PlayPickupSound();
         other.GetComponent<Player>().AddCoins(value);
 
-        Destroy(gameObject, 0.1f); // Задержка для звука
+        Destroy(gameObject, 0.1f);
     }
 
     private void PlayPickupSound()
@@ -42,7 +41,6 @@ public class Coin : MonoBehaviour
             return;
         }
 
-        // Воспроизводим через настроенный AudioSource
         audioSource.PlayOneShot(pickupSound);
     }
 }

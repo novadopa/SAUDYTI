@@ -25,7 +25,6 @@ public class UpgradesMenu : MonoBehaviour
         if (UpgradesManager.Instance.TryUpgradeHP(100))
         {
             UpdateUI();
-            // Можно добавить звук или эффекты
         }
     }
 
