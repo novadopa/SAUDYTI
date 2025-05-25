@@ -1,10 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-	public float moveSpeed = 5f;
+    public float moveSpeed = 5f;
 
 	public Rigidbody2D rb;
 	//public Animator animator;
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 		mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 	}
 
-	// Melhor para trabalhar com f�sica	
+	// Melhor para trabalhar com física	a
 	void FixedUpdate()
 	{
 		// Movement
@@ -40,5 +40,6 @@ public class PlayerMovement : MonoBehaviour
 		float angle = Mathf.Atan2(lookDir.y,lookDir.x) * Mathf.Rad2Deg - 90f;
 		rb.rotation = angle;
 	}
+
 
 }

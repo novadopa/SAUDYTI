@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3527909738701304833}
   - component: {fileID: 6167907073025997544}
   - component: {fileID: 5946071104912709831}
-  - component: {fileID: 8901232643444340885}
   - component: {fileID: -55506958779863650}
+  - component: {fileID: -2620945756126420048}
   m_Layer: 0
   m_Name: Bullet 1
   m_TagString: Untagged
@@ -154,7 +154,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!82 &8901232643444340885
+--- !u!114 &-55506958779863650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464047744359864496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca52dd35fb71058489c6542f31c1bfe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 20
+  hitEffect: {fileID: 1492740121970669312, guid: d94e89a13e4eba145b831d262dff23bb, type: 3}
+  _damageAmout: 10
+--- !u!82 &-2620945756126420048
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,14 +178,14 @@ AudioSource:
   m_GameObject: {fileID: 5464047744359864496}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cd025b26d61440d48bd93e0a2f22a712, type: 3}
-  m_Resource: {fileID: 8300000, guid: cd025b26d61440d48bd93e0a2f22a712, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a317acc3158825d4d8122502eb014f86, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.048
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -251,18 +266,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-55506958779863650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5464047744359864496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca52dd35fb71058489c6542f31c1bfe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 20
-  hitEffect: {fileID: 1492740121970669312, guid: d94e89a13e4eba145b831d262dff23bb, type: 3}
-  _damageAmout: 10
